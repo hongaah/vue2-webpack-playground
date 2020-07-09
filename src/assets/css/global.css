@@ -1,0 +1,162 @@
+/* 自定义样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 模块容器 */
+.module-container {
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .01);
+  min-height: calc(100vh - 200px);
+  position: relative;
+  margin-top: 20px;
+}
+
+/* 卡片容器 */
+.card-wrap {
+  border: 0;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 25px 0 rgba(44, 51, 73, .1);
+  background-color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-heading {
+  padding: 0 0 15px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #4c4d50;
+  border-bottom: 1px solid #eceff1;
+}
+
+.card-content {
+  padding: 10px;
+  overflow-x: auto;
+  min-height: 210px;
+}
+
+/* ElementUI 样式 */
+/* 导航 */
+.el-drawer.ltr {
+  width: 210px !important;
+}
+
+.el-drawer__header {
+  margin: 0;
+  padding: 0;
+}
+
+.el-menu {
+  border-right: 0;
+}
+
+.el-menu--collapse {
+  width: 70px;
+}
+
+.el-menu-item,
+.el-submenu__title {
+  color: #666666;
+  font-size: 12px;
+  transition: all .3s !important;
+}
+
+.el-menu-item.is-active {
+  color: #009944;
+  background: #00994470;
+}
+
+.el-menu-item.is-active::after {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  border-right: 3px solid #009944;
+  content: "";
+}
+
+/* 缩小模态框的上下距离 */
+.el-dialog--center .el-dialog__body {
+  padding: 12px 25px !important;
+}
+
+/* 气泡确认框 */
+.el-popconfirm__action {
+  margin-top: 10px;
+}
+
+.el-popconfirm__action .el-button--text {
+  padding: 7px 15px;
+}
+
+/* 分页 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+.el-pagination {
+  /* position: absolute; */
+  margin-top: 20px;
+}
+
+/* 面包屑 */
+.el-breadcrumb {
+  font-size: 13px;
+}
+
+.el-breadcrumb__item:last-child .el-breadcrumb__inner {
+  color: #009944;
+  font-weight: 600;
+}
+
+.el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
+  color: #009944;
+  font-weight: 600;
+}
+
+/* 按钮 */
+.el-button {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  touch-action: manipulation;
+}
+
+/* 表格 */
+.el-table__body-wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-thumb {
+  background: #00994536;
+  border-radius: 5px;
+}
+
+/* 表单 */
+.el-select,
+.el-cascader {
+  width: 100%;
+}
+
+.form-item-rank .el-form-item__content {
+  width: 440px;
+}
+
+@media screen and (max-width: 1024px) {
+  .form-item-rank .el-form-item__content {
+    width: 100%;
+  }
+}
