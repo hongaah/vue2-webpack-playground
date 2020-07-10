@@ -2,7 +2,7 @@
   <div class="login">
     <div class="login-wrap">
       <div class="login-header">
-        <img src="@/assets/img/logo.png" alt="ratection" />
+        <!-- <img src="@/assets/img/logo.png" alt="ratection" /> -->
         <span>TEST ADMIN</span>
       </div>
       <div class="login-content">
@@ -23,13 +23,6 @@
           </el-form-item>
         </el-form>
       </div>
-    </div>
-    <div class="login-footer">
-      <p>
-        广州兰泰胜辐射防护科技有限公司 Copyright &copy; 2020
-        <span class="footer-break">|</span>
-        <span class="footer-record">备案编号：粤ICP备17088701号</span>
-      </p>
     </div>
   </div>
 </template>

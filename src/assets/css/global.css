@@ -42,6 +42,15 @@
 }
 
 /* ElementUI 样式 */
+/* 布局 */
+.el-row, .el-col {
+  margin-bottom: 20px;
+}
+
+.el-row:last-child, .el-col:last-child {
+  margin-bottom: 0;
+}
+
 /* 导航 */
 .el-drawer.ltr {
   width: 210px !important;

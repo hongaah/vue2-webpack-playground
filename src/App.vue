@@ -24,7 +24,11 @@
               </el-menu-item>
               <el-menu-item index="About" @click="toPage('About')">
                 <i class="el-icon-folder"></i>
-                <span slot="title">关于</span>
+                <span slot="title">About</span>
+              </el-menu-item>
+              <el-menu-item index="Axios" @click="toPage('Axios')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">Axios</span>
               </el-menu-item>
             </el-menu>
           </div>
@@ -94,7 +98,11 @@
               </el-menu-item>
               <el-menu-item index="About" @click="toPage('About')">
                 <i class="el-icon-folder"></i>
-                <span slot="title">关于</span>
+                <span slot="title">About</span>
+              </el-menu-item>
+              <el-menu-item index="Axios" @click="toPage('Axios')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">Axios</span>
               </el-menu-item>
             </el-menu>
           </div>

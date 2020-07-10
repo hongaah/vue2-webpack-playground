@@ -5,10 +5,13 @@ import axios from 'axios'
 
 // Full config:  https://github.com/axios/axios#request-config
 // DOC: https://www.kancloud.cn/yunye/axios/234845
+
+// axios 全局配置
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
+// axios 实例配置
 const config = {
   baseURL: process.env.VUE_APP_API_URL,
   timeout: 60 * 1000, // Timeout
@@ -65,6 +68,12 @@ _axios.interceptors.response.use(
       Vue.prototype.$message({
         type: 'error',
         message: '请求超时'
+      })
+    }
+    if (error.message.indexOf('Network Error') !== -1) {
+      Vue.prototype.$message({
+        type: 'error',
+        message: '网络错误'
       })
     }
 

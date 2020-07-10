@@ -6,8 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
-      token: ''
-    }
+      token: '',
+      username: ''
+    },
+    auth: false
   },
   mutations: {
     setUser (state, val) {
@@ -15,6 +17,9 @@ export default new Vuex.Store({
     },
     removeUser (state) {
       state.user = {}
+    },
+    setAuth (state, val) {
+      state.auth = val
     }
   },
   actions: {
@@ -23,6 +28,9 @@ export default new Vuex.Store({
     },
     removeUser (context) {
       context.commit('removeUser')
+    },
+    setAuth (context) {
+      context.commit('setAuth')
     }
   },
   modules: {

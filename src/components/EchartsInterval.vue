@@ -1,43 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <el-row :gutter="20">
-      <el-col :md="24" :lg="16">
-        <div class="grid-content bg-purple">
-          <el-card class="box-card card-chart">
-            <div slot="header">
-              <span>仪表盘</span>
-            </div>
-            <div class="content">
-              <div id="cardCharts"></div>
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :md="24" :lg="8">
-        <div class="grid-content bg-purple">
-          <el-card class="box-card card-run">
-            <el-form
-              :model="formData"
-              :rules="formRules"
-              :label-position="labelPosition"
-              ref="form"
-              label-width="100px"
-              hide-required-asterisk
-            >
-              <el-form-item label="报警阈值" prop="a_thr">
-                <el-input v-model="arg_set.a_thr"></el-input>
-                <span>(单位：μGy/h 或 μSy/h)</span>
-              </el-form-item>
-              <el-form-item>
-                <el-button type="primary" @click="submitForm(true)">提交</el-button>
-                <el-button @click="resetForm('arg_set')">重置</el-button>
-              </el-form-item>
-            </el-form>
-          </el-card>
-        </div>
-      </el-col>
-    </el-row>
+  <div class="echarts">
+    <el-card class="box-card card-chart">
+      <div slot="header">
+        <span>仪表盘</span>
+      </div>
+      <div class="content">
+        <div id="cardCharts"></div>
+      </div>
+    </el-card>
   </div>
 </template>
 
@@ -48,7 +18,7 @@ import { formatTime } from '@/utils/date.js'
 import { debounce } from '@/utils/pref.js'
 
 export default {
-  name: 'system',
+  name: 'EchartsInterval',
   mounted () {
     this.getEchartsData()
   },
@@ -183,7 +153,6 @@ export default {
             data: DeviceValue
           }
         })
-        console.log(DeviceValue)
       }, 5000)
 
       // 推拉导航时元素容器大小的变更
@@ -193,12 +162,19 @@ export default {
           myChart.resize()
         })
       })
+      // 屏幕响应式
       window.addEventListener(
         'resize',
         debounce(() => {
           myChart.resize()
         }, 250)
       )
+    },
+    beforeRouteLeave (to, from, next) {
+      if (window.timer) {
+        clearInterval(window.timer)
+      }
+      next()
     }
   }
 }
@@ -206,13 +182,11 @@ export default {
 
 <style lang="scss" scoped>
 .card-chart {
-  height: 45vh;
-  min-height: 315px;
+  height: 372.91px;
 
   #cardCharts {
     width: 100%;
-    // height: 30vh;
-    min-height: 200px;
+    height: 250px;
   }
 }
 </style>

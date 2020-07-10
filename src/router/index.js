@@ -22,13 +22,13 @@ const routes = [
     redirect: '/Home'
   },
   {
-    path: '/Echarts',
-    name: 'Echarts',
+    path: '/About',
+    name: 'About',
     meta: { auth: true, keepAlive: true },
     // route level code-splitting
-    // this generates a separate chunk (echarts.[hash].js) for this route
+    // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "echarts" */ '../views/Echarts.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/Login',
@@ -37,9 +37,14 @@ const routes = [
     component: () => import('../views/Login.vue')
   },
   {
+    path: '/Axios',
+    name: 'Axios',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/Axios.vue')
+  },
+  {
     path: '/PageNotFound',
     name: 'PageNotFound',
-    meta: { auth: true, keepAlive: true },
     component: () => import('../views/PageNotFound.vue')
   }
 ]
