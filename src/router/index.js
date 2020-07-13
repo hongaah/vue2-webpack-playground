@@ -22,13 +22,31 @@ const routes = [
     redirect: '/Home'
   },
   {
-    path: '/About',
-    name: 'About',
+    path: '/ElementPage',
+    name: 'ElementPage',
     meta: { auth: true, keepAlive: true },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ElementPage.vue')
+  },
+  {
+    path: '/AntdPage',
+    name: 'AntdPage',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/AntdPage.vue')
+  },
+  {
+    path: '/BasicVue',
+    name: 'BasicVue',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/BasicVue.vue')
+  },
+  {
+    path: '/BasicJs',
+    name: 'BasicJs',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/BasicJs.vue')
   },
   {
     path: '/Login',

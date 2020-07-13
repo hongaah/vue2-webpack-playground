@@ -73,6 +73,23 @@
               <div slot="tip" class="el-upload__tip">请上传 jpg/png 文件，且不超过 500kb</div>
             </el-upload>
           </el-form-item>
+          <el-form-item label="密码" prop="pass">
+            <el-input
+              v-model="formData.pass"
+              show-password
+              type="password"
+              autocomplete="off">
+            </el-input>
+          </el-form-item>
+          <el-form-item label="确认密码" prop="checkPass">
+            <el-input
+              @keyup.enter.native="confirmEditPass"
+              v-model="formData.checkPass"
+              show-password
+              autocomplete="off"
+              type="password"
+            ></el-input>
+          </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="submitForm(true)">提交</el-button>
             <el-button @click="resetForm('formData')">重置</el-button>
@@ -84,6 +101,8 @@
 </template>
 
 <script>
+// import * as qiniu from 'qiniu-js'
+
 export default {
   name: 'element-form',
   data () {
@@ -120,6 +139,25 @@ export default {
       })
       callback()
     }
+    const validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.formData.checkPass !== '') {
+          this.$refs.formData.validateField('checkPass')
+        }
+        callback()
+      }
+    }
+    const validatePass2 = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'))
+      } else if (value !== this.formData.pass) {
+        callback(new Error('两次输入密码不一致!'))
+      } else {
+        callback()
+      }
+    }
 
     return {
       formData: {
@@ -127,7 +165,8 @@ export default {
         alert: '',
         mac: ['', '', '', '', '', ''],
         ip: '',
-        character: ['']
+        character: [''],
+        imageList: []
       },
       uploadImageUrl: '/api/product/uploadPicture',
       formRules: {
@@ -148,6 +187,12 @@ export default {
         ],
         imageUrl: [
           { required: true, message: '请选择产品照片', trigger: 'blur' }
+        ],
+        pass: [
+          { validator: validatePass, trigger: 'blur' }
+        ],
+        checkPass: [
+          { validator: validatePass2, trigger: 'blur' }
         ]
       },
       labelPosition: 'right'
@@ -220,37 +265,85 @@ export default {
 
     // 上传照片
     handleImageUpload (image) {
-      const loading = this.$loading.service({
-        target: document.getElementById('imagePicture'),
-        text: '上传照片中',
-        fullscreen: false
-      })
-      const form = new FormData()
-      form.append('file', image.file)
-      this.axios
-        .post(image.action, form, {
-          'Content-Type': 'multipart/form-data'
-        })
-        .then(res => {
-          if (res.data.code === 0) {
-            this.$message.success('上传照片成功')
-            this.formData.imageUrl = res.data.data
-            this.formData.imageList = [{
-              name: res.data.data,
-              url: res.data.data
-            }]
-          }
-        })
-        .catch(() => {
-          this.formData.imageList = []
-          this.$message({
-            type: 'error',
-            message: '内部错误'
-          })
-        })
-        .finally(() => {
-          loading.close()
-        })
+      // 普通上传
+      // const loading = this.$loading.service({
+      //   target: document.getElementById('imagePicture'),
+      //   text: '上传照片中',
+      //   fullscreen: false
+      // })
+      // const form = new FormData()
+      // form.append('file', image.file)
+      // this.axios
+      //   .post(image.action, form, {
+      //     'Content-Type': 'multipart/form-data'
+      //   })
+      //   .then(res => {
+      //     if (res.data.code === 0) {
+      //       this.$message.success('上传照片成功')
+      //       this.formData.imageUrl = res.data.data
+      //       this.formData.imageList = [{
+      //         name: res.data.data,
+      //         url: res.data.data
+      //       }]
+      //     }
+      //   })
+      //   .catch(() => {
+      //     this.formData.imageList = []
+      //     this.$message({
+      //       type: 'error',
+      //       message: '内部错误'
+      //     })
+      //   })
+      //   .finally(() => {
+      //     loading.close()
+      //   })
+
+      // 七牛上传
+      // const file = image.file
+      // if (file.size > 1024 * 1024 * 50) {
+      //   this.$notify.warning({
+      //     title: '提示',
+      //     message: '上传文件大小不可超过 50 MB'
+      //   })
+      //   return
+      // }
+      // let form = new FormData()
+      // form.append('name', file.name)
+      // this.axios.post('/api/file/qiniuUpToken', form).then(({ data }) => {
+      //   if (data.code === 0) {
+      //     let key = data.data.key
+      //     let token = data.data.qiniu_token
+      //     let config = {
+      //       useCdnDomain: true,
+      //       region: data.data.domain
+      //     }
+      //     let observable = qiniu.upload(file, key, token, config)
+      //     let that = this
+      //     observable.subscribe({
+      //       complete (res) {
+      //         if (res) {
+      //           let fileObj = {
+      //             path: `http://file.ratection.com/${res.key}`,
+      //             name: file.name,
+      //             size: file.size
+      //           }
+      //           // that.fileEditModal.form.filename = fileObj.name
+      //           // that.fileEditModal.form.path = fileObj.path
+      //           // that.fileEditModal.form.size = that.getFileSizeUnit(
+      //           //   fileObj.size
+      //           // )
+      //           // that.fileEditModal.fileList = [
+      //           //   {
+      //           //     name: fileObj.name,
+      //           //     url: fileObj.path
+      //           //   }
+      //           // ]
+      //           // that.fileEditModal.isUpload = true
+      //         }
+      //       }
+      //     })
+      //   }
+      // })
     },
     beforeImageUpload (file) {
       const isJPG = file.type === 'image/jpg' || 'image/jpeg' || 'image/png'
@@ -331,7 +424,7 @@ ul[class="macAdress"] input[type="text"] {
   background: transparent;
 }
 .character {
-  margin-right: 10%;
+  margin-right: 20%;
   margin-bottom: 8px;
   white-space: nowrap;
 
@@ -346,5 +439,28 @@ ul[class="macAdress"] input[type="text"] {
   .btn-add {
     visibility: visible;
   }
+}
+
+// 上传照片
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  line-height: 178px;
+  text-align: center;
+}
+.el-upload__tip {
+  margin-top: 0;
+}
+/deep/.avatar-uploader .el-upload:hover {
+  border-color: #009944;
+}
+/deep/.image-border .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 </style>

@@ -22,9 +22,21 @@
                 <i class="el-icon-s-home"></i>
                 <span slot="title">首页</span>
               </el-menu-item>
-              <el-menu-item index="About" @click="toPage('About')">
+              <el-menu-item index="ElementPage" @click="toPage('ElementPage')">
                 <i class="el-icon-folder"></i>
-                <span slot="title">About</span>
+                <span slot="title">ElementPage</span>
+              </el-menu-item>
+              <el-menu-item index="AntdPage" @click="toPage('AntdPage')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">AntdPage</span>
+              </el-menu-item>
+              <el-menu-item index="BasicVue" @click="toPage('BasicVue')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">BasicVue</span>
+              </el-menu-item>
+              <el-menu-item index="BasicJs" @click="toPage('BasicJs')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">BasicJs</span>
               </el-menu-item>
               <el-menu-item index="Axios" @click="toPage('Axios')">
                 <i class="el-icon-folder"></i>
@@ -96,9 +108,21 @@
                 <i class="el-icon-s-home"></i>
                 <span slot="title">首页</span>
               </el-menu-item>
-              <el-menu-item index="About" @click="toPage('About')">
+              <el-menu-item index="ElementPage" @click="toPage('ElementPage')">
                 <i class="el-icon-folder"></i>
-                <span slot="title">About</span>
+                <span slot="title">ElementPage</span>
+              </el-menu-item>
+              <el-menu-item index="AntdPage" @click="toPage('AntdPage')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">AntdPage</span>
+              </el-menu-item>
+              <el-menu-item index="BasicVue" @click="toPage('BasicVue')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">BasicVue</span>
+              </el-menu-item>
+              <el-menu-item index="BasicJs" @click="toPage('BasicJs')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">BasicJs</span>
               </el-menu-item>
               <el-menu-item index="Axios" @click="toPage('Axios')">
                 <i class="el-icon-folder"></i>

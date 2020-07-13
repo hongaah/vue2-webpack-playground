@@ -9,11 +9,13 @@
     "test": "vue-cli-service build --mode development"
   },
   "dependencies": {
+    "ant-design-vue": "^1.6.3",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
     "echarts": "^4.8.0",
     "element-resize-detector": "^1.2.1",
     "element-ui": "^2.3.6",
+    "qiniu-js": "^3.0.3",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
