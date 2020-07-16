@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import './plugins/axios'
 // import './plugins/element'
+// import './plugins/antdui'
 import ElementUI from 'element-ui'
 import '@/assets/css/element-variables.scss'
 import '@/assets/css/global.css'
@@ -16,6 +17,7 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+// 每个Vue应用都是通过 Vue 函数创建一个新的 Vue 实例
 new Vue({
   router,
   store,

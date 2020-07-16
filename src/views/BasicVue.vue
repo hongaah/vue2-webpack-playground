@@ -53,7 +53,7 @@
       </el-col>
     </el-row>
     <el-row :gutter="20">
-      <el-col :sm="24" :md="12">
+      <el-col :sm="24" :md="8">
         <el-card>
           <div slot="header">
             <span>class and style</span>
@@ -71,7 +71,64 @@
           </div>
         </el-card>
       </el-col>
+      <el-col :sm="24" :md="8">
+        <el-card>
+          <div slot="header">
+            <span>模板语法</span>
+          </div>
+          <div class="content">
+            <!-- 一次性地插值 -->
+            <span v-once>这个将不会改变: {{ onceMsg }}</span>
+            <!-- rawHtml 整个替换 span -->
+            <span v-html="'<p><em>dewfw</em></p>'"></span>
+            <!-- 布尔 attribute 值只要存在就为true，但为null undefined false 时disabled 属性值甚至不会包含在渲染的button中 -->
+            <button :disabled="null"></button>
+            <!-- 模板表达式只能访问全局变量的一个白名单如Math Date -->
+            {{ Math.random().toFixed(2) }}
+            <!-- 对动态参数表达式的约束，浏览器会把attribute名全部强制转为小写 -->
+            <!-- someAttr 会转换为 someattr -->
+            <a :[someAttr]="value"></a>
+          </div>
+        </el-card>
+      </el-col>
+      <el-col :sm="24" :md="8">
+        <el-card>
+          <div slot="header">
+            <span>条件渲染</span>
+          </div>
+          <div class="content">
+            <template v-if="a">
+              <h1>title</h1>
+              <p>paragraph1</p>
+              <p>paragraph2</p>
+            </template>
+            <div v-else-if="b">
+              v-else-if
+            </div>
+            <div v-else>
+              v-else
+            </div>
+            <!-- 用key管理可复用的元素 -->
+            <!-- Vue 会尽可能高效地渲染元素，通常会复用已有元素 -->
+            <!-- 加了key，每次切换时，输入框都将被重新渲染 -->
+            <!-- 否则 input 输入的值切换时不会变 -->
+            <template v-if="loginType === 'username'">
+              <label>Username</label>
+              <input placeholder="Enter your username" key="username-input">
+            </template>
+            <template v-else>
+              <label>Email</label>
+              <input placeholder="Enter your email address" key="email-input">
+            </template>
+
+            <!-- v-if 只有初始渲染为真时才开始渲染，有着更高的切换开销 -->
+            <!-- v-show 不管条件如何都会渲染，进行简单的css 切换，有着更高的初始渲染开销-->
+            <!-- 建议不同时使用 v-if v-for -->
+          </div>
+        </el-card>
+      </el-col>
     </el-row>
+
   </div>
 </template>
 
@@ -101,7 +158,10 @@ export default {
       overridingStyles: {
         color: 'green',
         fontSize: '15px'
-      }
+      },
+      onceMsg: 'peace',
+      someAttr: 'href',
+      someattr: 'alt'
     }
   },
   computed: {

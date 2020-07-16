@@ -31,10 +31,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/ElementPage.vue')
   },
   {
-    path: '/AntdPage',
-    name: 'AntdPage',
+    path: '/LifeCircle',
+    name: 'LifeCircle',
     meta: { auth: true, keepAlive: true },
-    component: () => import('../views/AntdPage.vue')
+    component: () => import('../views/LifeCircle.vue')
   },
   {
     path: '/BasicVue',
