@@ -34,6 +34,14 @@
                 <i class="el-icon-folder"></i>
                 <span slot="title">BasicVue</span>
               </el-menu-item>
+              <el-menu-item index="BasicVueComponent" @click="toPage('BasicVueComponent')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">BasicVueComponent</span>
+              </el-menu-item>
+              <el-menu-item index="LifeCircle" @click="toPage('LifeCircle')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">LifeCircle</span>
+              </el-menu-item>
               <el-menu-item index="BasicJs" @click="toPage('BasicJs')">
                 <i class="el-icon-folder"></i>
                 <span slot="title">BasicJs</span>
@@ -119,6 +127,14 @@
               <el-menu-item index="BasicVue" @click="toPage('BasicVue')">
                 <i class="el-icon-folder"></i>
                 <span slot="title">BasicVue</span>
+              </el-menu-item>
+              <el-menu-item index="BasicVueComponent" @click="toPage('BasicVueComponent')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">BasicVueComponent</span>
+              </el-menu-item>
+              <el-menu-item index="LifeCircle" @click="toPage('LifeCircle')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">LifeCircle</span>
               </el-menu-item>
               <el-menu-item index="BasicJs" @click="toPage('BasicJs')">
                 <i class="el-icon-folder"></i>

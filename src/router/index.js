@@ -43,6 +43,12 @@ const routes = [
     component: () => import('../views/BasicVue.vue')
   },
   {
+    path: '/BasicVueComponent',
+    name: 'BasicVueComponent',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/BasicVueComponent.vue')
+  },
+  {
     path: '/BasicJs',
     name: 'BasicJs',
     meta: { auth: true, keepAlive: true },
