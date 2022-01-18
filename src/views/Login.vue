@@ -51,6 +51,9 @@ export default {
     //   })
     // },
     submitForm (formName) {
+      console.log('log')
+      console.error('error')
+      console.info('info')
       this.$refs[formName].validate(valid => {
         if (valid) {
           const form = new FormData()

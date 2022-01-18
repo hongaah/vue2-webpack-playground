@@ -2,7 +2,8 @@ const CompressionPlugin = require('compression-webpack-plugin') // 引入gzip
 const TerserPlugin = require('terser-webpack-plugin') // 打包配置自动忽略console.log等
 
 module.exports = {
-  publicPath: './',
+  // publicPath: './',
+  outputDir: 'docker/dist',
   // assetsDir: './assets',
   productionSourceMap: false,
   devServer: {
@@ -25,28 +26,30 @@ module.exports = {
     if (process.env.NODE_ENV === 'production') {
       config.mode = 'production'
       return {
+        optimization: {
+          minimize: true,
+          minimizer: [
+            new TerserPlugin({
+              cache: true,
+              parallel: true,
+              sourceMap: false,
+              terserOptions: {
+                compress: {
+                  drop_console: true,
+                  drop_debugger: true,
+                  // pure_funcs: ['console.log'], // 移除console
+                },
+              },
+            }),
+          ],
+        },
         plugins: [
+          // 添加gzip
           new CompressionPlugin({
             test: /\.js$|\.html$|\.css/,
             threshold: 10240,
             deleteOriginalAssets: false
           }),
-          //打包环境去掉console.log
-          new TerserPlugin({
-            cache: true,
-            sourceMap: false,
-            parallel: true, // 多进程
-            terserOptions: {
-              ecma: undefined,
-              warnings: false,
-              parse: {},
-              compress: {
-                drop_console: true,
-                drop_debugger: false,
-                pure_funcs: ['console.log'], // 移除console
-              },
-            },
-          })
         ]
       }
     }
