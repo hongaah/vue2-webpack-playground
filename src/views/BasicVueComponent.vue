@@ -124,20 +124,20 @@
                 解构
                 user为 { "name": "hong" }
               -->
-              <template #sonData="{ user }">
+              <template #sonData1="{ user }">
                 <p>{{ user }}</p>
               </template>
               <!--
                 解构并重命名为 person
                 person 为 { "name": "hong" }
               -->
-              <template #sonData="{ user: person }">
+              <template #sonData2="{ user: person }">
                 <p>{{ person }}</p>
               </template>
               <!--
                 解构并自定义后备内容
               -->
-              <template #sonData="{ user = { name: 'vip' } }">
+              <template #sonData3="{ user = { name: 'vip' } }">
                 <p>{{ user }}</p>
               </template>
             </SlotComponent>

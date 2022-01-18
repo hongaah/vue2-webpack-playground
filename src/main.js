@@ -45,10 +45,30 @@ requireComponent.keys().forEach(fileName => {
   )
 })
 
+// 绑定日期格式，使用方式：New Date().Format('MMdd')
+// Date.prototype.Format = function (fmt) {
+//   var o = {
+//       "M+": this.getMonth() + 1, //月份
+//       "d+": this.getDate(), //日
+//       "h+": this.getHours(), //小时
+//       "m+": this.getMinutes(), //分
+//       "s+": this.getSeconds(), //秒
+//       "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+//       "S": this.getMilliseconds() //毫秒
+//   };
+//   if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+//   for (var k in o)
+//   if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+//   return fmt;
+// }
+
 // 全局引入
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
+
+// 全局组件，可以直接使用，减少在多个页面中重复导入
+// Vue.component('networkerror',networkerror);
 
 // 每个Vue应用都是通过 Vue 函数创建一个新的 Vue 实例
 new Vue({
