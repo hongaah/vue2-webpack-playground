@@ -1,6 +1,9 @@
 const CompressionPlugin = require('compression-webpack-plugin') // 引入gzip
 const TerserPlugin = require('terser-webpack-plugin') // 打包配置自动忽略console.log等
 
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin') // 分析打包时间
+const smp = new SpeedMeasurePlugin()
+
 module.exports = {
   // publicPath: './',
   outputDir: 'docker/dist',
@@ -25,7 +28,7 @@ module.exports = {
     config.entry.app = ['babel-polyfill', './src/main.js']
     if (process.env.NODE_ENV === 'production') {
       config.mode = 'production'
-      return {
+      return smp.wrap({
         optimization: {
           minimize: true,
           minimizer: [
@@ -51,19 +54,21 @@ module.exports = {
             deleteOriginalAssets: false
           }),
         ]
-      }
+      })
     }
   },
   chainWebpack: config => {
     config.plugins.delete('prefetch')
-    if (process.env.NODE_ENV === 'production') {
+    // if (process.env.NODE_ENV === 'production') {
       // if (process.env.npm_config_report) {
       //   config
       //     .plugin('webpack-bundle-analyzer')
       //     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
       //     .end()
-      //   config.plugins.delete('prefetch')
       // }
-    }
-  }
+    // }
+  },
+  lintOnSave: undefined,
+  runtimeCompiler: true
 }
+

@@ -51,26 +51,25 @@ export default {
     //   })
     // },
     submitForm (formName) {
-      console.log('log')
-      console.error('error')
-      console.info('info')
       this.$refs[formName].validate(valid => {
         if (valid) {
-          const form = new FormData()
-          form.append('username', this.loginForm.username)
-          form.append('password', this.loginForm.password)
-          this.axios.post('/api/auth/login', form).then(({ data }) => {
-            if (data.code === 0) {
-              this.$store.commit('setUser', data.data)
-              sessionStorage.setItem('token', data.data.token)
-              this.$router.push({ name: 'Home' })
-            } else {
-              this.$notify.warning({
-                title: '提示',
-                message: '用户名或密码错误'
-              })
-            }
-          })
+          sessionStorage.setItem('token', '123')
+          this.$router.push({ name: 'Home' })
+          // const form = new FormData()
+          // form.append('username', this.loginForm.username)
+          // form.append('password', this.loginForm.password)
+          // this.axios.post('/api/auth/login', form).then(({ data }) => {
+          //   if (data.code === 0) {
+          //     this.$store.commit('setUser', data.data)
+          //     sessionStorage.setItem('token', data.data.token)
+          //     this.$router.push({ name: 'Home' })
+          //   } else {
+          //     this.$notify.warning({
+          //       title: '提示',
+          //       message: '用户名或密码错误'
+          //     })
+          //   }
+          // })
         } else {
           return false
         }

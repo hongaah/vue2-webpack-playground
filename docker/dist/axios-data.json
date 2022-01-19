@@ -1,0 +1,9 @@
+{
+  "title": "axios-data",
+  "code": 0,
+  "data": {
+    "id": 1,
+    "name": "test",
+    "date": "2020-07-10"
+  }
+}
