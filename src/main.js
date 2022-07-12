@@ -12,6 +12,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import VueComponentsApi from '@vue/composition-api'// vue3
+
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
@@ -64,6 +66,7 @@ requireComponent.keys().forEach(fileName => {
 
 // 全局引入
 Vue.use(ElementUI)
+Vue.use(VueComponentsApi)
 
 Vue.config.productionTip = false
 

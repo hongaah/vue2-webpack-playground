@@ -50,6 +50,10 @@
                 <i class="el-icon-folder"></i>
                 <span slot="title">Axios</span>
               </el-menu-item>
+              <el-menu-item index="CompositionAPI" @click="toPage('CompositionAPI')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">CompositionAPI</span>
+              </el-menu-item>
             </el-menu>
           </div>
         </aside>
@@ -143,6 +147,10 @@
               <el-menu-item index="Axios" @click="toPage('Axios')">
                 <i class="el-icon-folder"></i>
                 <span slot="title">Axios</span>
+              </el-menu-item>
+              <el-menu-item index="CompositionAPI" @click="toPage('CompositionAPI')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">CompositionAPI</span>
               </el-menu-item>
             </el-menu>
           </div>

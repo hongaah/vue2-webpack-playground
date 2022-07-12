@@ -70,6 +70,12 @@ const routes = [
     path: '/PageNotFound',
     name: 'PageNotFound',
     component: () => import('../views/PageNotFound.vue')
+  },
+  {
+    path: '/CompositionAPI',
+    name: 'CompositionAPI',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/CompositionAPI.vue')
   }
 ]
 
