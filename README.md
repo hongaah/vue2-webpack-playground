@@ -1,8 +1,15 @@
-# vue-custom
+# vue2-webpack-playgroud
 
-## Project setup
+> 小型完整管理系统 & vue2 框架及工具学习实践
 
-``` bash
+## Features
+
+- class-style 风格（vue-property-decorator 装饰器）
+- composition-api
+
+## Setup
+
+```bash
 # install dependencies
 $ yarn install
 
