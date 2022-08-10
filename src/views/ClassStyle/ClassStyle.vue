@@ -23,6 +23,13 @@
         <span>组件</span>
       </div>
       <slot-component>导入组件的新标题</slot-component>
+      <break-line
+        :propA="0"
+        propB="propB"
+        @emit-test="getEmitTest"
+        @renameEmit="getRenameEmit"
+        @emit-dom="getEmitDom"
+      ></break-line>
     </el-card>
     <el-card class="box-card">
       <div slot="header">
@@ -39,13 +46,15 @@
 
   // import Vue from 'vue'
   import { mixins } from 'vue-class-component'
-  import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
-  import SlotComponent from '@/components/SlotComponent'
+  import { Vue, Component, Watch } from 'vue-property-decorator'
   import { Hello, World } from './mixins/helloworld'
+  import SlotComponent from '@/components/SlotComponent'
+  import BreakLine from './components/BreakLine.vue'
 
   @Component({
     components: {
       SlotComponent,
+      BreakLine,
     },
   })
 
@@ -59,6 +68,7 @@
         var3: undefined, // reative as it is declared via `data` hook
       }
     }
+    // 监听及计算
     get computedVar2() {
       return 'get computed - ' + this.var2
     }
@@ -75,7 +85,7 @@
     onVar2Change(val) {
       this.watchVar2 = 'watch var2: ' + val
     }
-
+    // 生命周期
     created() {
       this.var2 = 'created 2'
     }
@@ -83,6 +93,7 @@
       this.var3 = 'mounted 3'
     }
 
+    // 方法
     fn1() {
       this.var2 = 'ok2'
       this.var3 = 'ok3'
@@ -91,6 +102,16 @@
     fn2() {
       this.$router.push({ path: '/Home' })
     }
+    getEmitTest(e) {
+      console.log('getEmitTest', e)
+    }
+    getRenameEmit(e) {
+      console.log('getRenameEmit', e)
+    }
+    getEmitDom(e) {
+      console.log('getEmitDom', e)
+    }
+    // 路由
     beforeRouteEnter(to, from, next) {
       console.log('beforeRouteEnter')
       next()

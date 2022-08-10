@@ -152,6 +152,10 @@
                 <i class="el-icon-folder"></i>
                 <span slot="title">CompositionAPI</span>
               </el-menu-item>
+              <el-menu-item index="ClassStyle" @click="toPage('ClassStyle')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">ClassStyle</span>
+              </el-menu-item>
             </el-menu>
           </div>
         </aside>
