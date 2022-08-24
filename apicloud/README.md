@@ -12,12 +12,11 @@
 
 ### 使用
 
-在编辑器登录账号，新建 Native App 项目后即可同步到云控制台，项目中只保留项目中`config.xml`文件，`config.xml`文件里关键看`id`是否跟云项目中id一致，`src`链接对项目入口文件。
+在编辑器登录账号，新建 Native App 项目后即可同步到云控制台，项目中只保留项目中`config.xml`文件
 
 ```xml:config.xml 节选部分，关键看以下配置
-  <widget id="A6116853009399"  version="0.0.1"> // 需要跟云项目中id一致
-
-  <content src="./dist/index.html" /> // 链接对入口文件，可以是局域网ip或编译好的项目文件入口
+  <widget id="A6116853009399"  version="0.0.1"> // 需要跟云项目中id一致
+  <content src="./dist/index.html" /> // 链接对入口文件，可以是局域网ip或编译好的项目文件入口
 ```
 
 ### 真机调试
@@ -34,3 +33,4 @@ wifi同步：链接项目入口后，右键项目根路径打开WIFI同步
 
 - 官方教程：<https://www.apicloud.com/video_list#plugins>
 - 图文教程：<https://juejin.cn/post/6973441944374476831#heading-0>
+
