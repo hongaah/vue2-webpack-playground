@@ -87,7 +87,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   // base: process.env.BASE_URL,
   routes,
 })
@@ -99,17 +99,17 @@ router.beforeEach((to, from, next) => {
       if (!token) {
         next()
       } else {
-        next('/')
+        next({ name: 'Home' })
       }
     } else {
       if (!token) {
-        next('/Login')
+        next({ name: 'Login' })
       } else {
         next()
       }
     }
   } else {
-    next('/PageNotFound')
+    next({ name: '/PageNotFound' })
   }
   // 清除定时器
   if (from.path === '/' && window.timer) {

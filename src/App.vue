@@ -70,7 +70,7 @@
             <div :class="{ 'nav-heading': true, 'nav-heading-md': isMinScreen }">
               <router-link to="/Home">
                 <img src="./assets/img/logo.png" alt="ratection" />
-                <h1>产品管理平台</h1>
+                <h1>测试管理平台</h1>
               </router-link>
             </div>
             <el-dropdown :show-timeout="100" class="nav-user" placement="bottom">

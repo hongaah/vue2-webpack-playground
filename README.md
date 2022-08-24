@@ -1,11 +1,12 @@
 # vue2-webpack-playground
 
-> 小型完整管理系统 & vue2 框架及工具学习实践
+> 小型完整管理系统 & vue2 框架及工具实践
 
 ## Features
 
 - class-style 风格（vue-property-decorator 装饰器）
 - composition-api
+- apicloud
 
 ## Setup
 

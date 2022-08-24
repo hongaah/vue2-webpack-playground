@@ -5,9 +5,8 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin') // 分析打�
 const smp = new SpeedMeasurePlugin()
 
 module.exports = {
-  // publicPath: './',
-  outputDir: 'docker/dist',
-  // assetsDir: './assets',
+  publicPath: './',
+  // outputDir: 'apicloud/dist',
   productionSourceMap: false,
   devServer: {
     proxy: {
@@ -40,11 +39,11 @@ module.exports = {
                 compress: {
                   drop_console: true,
                   drop_debugger: true,
-                  // pure_funcs: ['console.log'], // 移除console
-                },
-              },
-            }),
-          ],
+                  pure_funcs: ['console.log'] // 移除console
+                }
+              }
+            })
+          ]
         },
         plugins: [
           // 添加gzip
@@ -52,7 +51,7 @@ module.exports = {
             test: /\.js$|\.html$|\.css/,
             threshold: 10240,
             deleteOriginalAssets: false
-          }),
+          })
         ]
       })
     }
@@ -60,15 +59,14 @@ module.exports = {
   chainWebpack: config => {
     config.plugins.delete('prefetch')
     // if (process.env.NODE_ENV === 'production') {
-      // if (process.env.npm_config_report) {
-      //   config
-      //     .plugin('webpack-bundle-analyzer')
-      //     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
-      //     .end()
-      // }
+    // if (process.env.npm_config_report) {
+    //   config
+    //     .plugin('webpack-bundle-analyzer')
+    //     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    //     .end()
+    // }
     // }
   },
   lintOnSave: undefined,
   runtimeCompiler: true
 }
-
