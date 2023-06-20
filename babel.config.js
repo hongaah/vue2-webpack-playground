@@ -3,6 +3,6 @@ module.exports = {
   plugins: [
     ['import', { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: true }],
     ['@babel/proposal-decorators', { legacy: true }],
-    ['@babel/proposal-class-properties', { loose: true }],
+    ['@babel/proposal-class-properties', { loose: false }],
   ],
 }
