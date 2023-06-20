@@ -84,6 +84,12 @@ const routes = [
     meta: { auth: true, keepAlive: true },
     component: () => import('../views/ClassStyle/ClassStyle.vue'),
   },
+  {
+    path: '/Vue2point7',
+    name: 'Vue2point7',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/Vue2point7/index.vue'),
+  },
 ]
 
 const router = new VueRouter({

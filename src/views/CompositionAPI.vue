@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { ref, reactive } from '@vue/composition-api'
+// import { ref, reactive } from '@vue/composition-api'
+import { ref, reactive } from 'vue'
 
 export default {
   setup () {

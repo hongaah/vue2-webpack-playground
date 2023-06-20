@@ -54,6 +54,10 @@
                 <i class="el-icon-folder"></i>
                 <span slot="title">ClassStyle</span>
               </el-menu-item>
+              <el-menu-item index="Vue2point7" @click="toPage('Vue2point7')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">Vue2point7</span>
+              </el-menu-item>
             </el-menu>
           </div>
         </aside>
@@ -155,6 +159,10 @@
               <el-menu-item index="ClassStyle" @click="toPage('ClassStyle')">
                 <i class="el-icon-folder"></i>
                 <span slot="title">ClassStyle</span>
+              </el-menu-item>
+              <el-menu-item index="Vue2point7" @click="toPage('Vue2point7')">
+                <i class="el-icon-folder"></i>
+                <span slot="title">Vue2point7</span>
               </el-menu-item>
             </el-menu>
           </div>
