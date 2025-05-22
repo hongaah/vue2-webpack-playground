@@ -1,0 +1,10 @@
+::v-deep .list-config-cache {
+  .el-link.el-link--primary {
+    color: #3673fe !important;
+    font-weight: 600;
+  }
+  .el-link.is-disabled {
+    color: #909399 !important;
+    font-weight: 600;
+  }
+}

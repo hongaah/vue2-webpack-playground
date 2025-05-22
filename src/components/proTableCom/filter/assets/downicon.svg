@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>下拉icon</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="12" height="12"></rect>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.1首页-品质投诉申请-投影" transform="translate(-492.000000, -364.000000)">
+            <g id="编组-8备份-6" transform="translate(247.000000, 288.000000)">
+                <g id="编组-5" transform="translate(20.000000, 66.000000)">
+                    <g id="下拉icon" transform="translate(225.000000, 10.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="蒙版"></g>
+                        <path d="M2.28065871,8.41622165 C2.00451633,8.41622165 1.78065871,8.19236402 1.78065871,7.91622165 L1.78065871,7.41622165 C1.78065871,7.14007927 2.00451633,6.91622165 2.28065871,6.91622165 L8.69665871,6.916 L8.69688035,0.5 C8.69688035,0.223857625 8.92073798,-1.88988193e-12 9.19688035,-1.89004368e-12 L9.69688035,-1.89004368e-12 C9.97302273,-1.8900944e-12 10.1968804,0.223857625 10.1968804,0.5 L10.1968804,7.91622165 C10.1968804,8.16168154 10.0200052,8.36583002 9.78675599,8.40816598 L9.69688035,8.41622165 L9.69688035,8.41622165 L2.28065871,8.41622165 Z" id="形状结合" fill="#8592A7" mask="url(#mask-2)" transform="translate(5.988770, 4.208111) rotate(-315.000000) translate(-5.988770, -4.208111) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

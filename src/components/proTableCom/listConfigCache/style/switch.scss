@@ -1,0 +1,53 @@
+.srm-switch-wrap {
+  height: 22px;
+  min-width: 44px;
+  display: inline-block;
+  .srm-switch {
+    position: relative;
+    height: 22px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.36s;
+    display: flex;
+    align-items: center;
+    .srm-switch-inner {
+      color: #fff;
+      font-size: 14px;
+      padding: 0 8px;
+      transition: all 0.36s;
+    }
+    .inner-checked {
+      margin-right: 18px;
+    }
+    .inner-unchecked {
+      margin-left: 18px;
+    }
+    .u-node {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 100%;
+      cursor: pointer;
+      transition: all 0.36s;
+    }
+    .node-checked {
+      // 结果等价于right: 2px; 为了滑动效果都以左边为基准进行偏移
+      left: 100%;
+      margin-left: -2px;
+      transform: translateX(-100%);
+    }
+  }
+  .srm-switch-checked {
+    background: #3673fe;
+  }
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}

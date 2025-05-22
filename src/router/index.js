@@ -90,6 +90,12 @@ const routes = [
     meta: { auth: true, keepAlive: true },
     component: () => import('../views/Vue2point7/index.vue'),
   },
+  {
+    path: '/Protable',
+    name: 'Protable',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/Protable/index.vue'),
+  },
 ]
 
 const router = new VueRouter({
