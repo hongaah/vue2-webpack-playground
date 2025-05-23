@@ -5,7 +5,10 @@
       :filters="filters"
       :columns="columns"
       :get-data="getData"
-      :filter-props="{ bindForm: filterBindForm }"
+      :filter-props="{
+        bindForm: filterBindForm,
+        expandFilterNums: 2
+      }"
       :filter-events="filterEvents"
       :table-props="{
         'max-height': '600px',

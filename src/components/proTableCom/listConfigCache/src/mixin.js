@@ -6,14 +6,17 @@ export default {
     }
   },
   methods: {
+    initListConfig() {
+      if (this.customId && this.$refs.ListConfigRef) {
+        this.$refs.ListConfigRef.init()
+      }
+    },
     updateColumns(newColumns) {
       this.columnsKey = this.columnsKey + 1
       this.columnsSetData = newColumns
     }
   },
   mounted() {
-    if (this.customId && this.$refs.ListConfigRef) {
-      this.$refs.ListConfigRef.init()
-    }
+    this.initListConfig()
   }
 }

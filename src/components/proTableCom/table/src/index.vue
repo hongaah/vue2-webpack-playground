@@ -155,6 +155,9 @@
       isEmpty(value) {
         return value === null || value === undefined || value === ''
       },
+      getListConfigInstance() {
+        return this.$refs.ListConfigRef
+      },
       openListConfig() {
         this.$refs.ListConfigRef.onSet()
       }

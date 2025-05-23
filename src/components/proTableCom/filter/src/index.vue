@@ -62,11 +62,10 @@
           :style="{
             transform: handledFilters.length === expandNums ? 'rotate(-90deg)' : 'rotate(90deg)'
           }"
-          round
           class="filter-expand-btn"
           @click="expand"
         >
-          <el-icon :size="16" icon="doubleArrow" color="#899099" />
+          <i class="el-icon-d-arrow-right"></i>
         </el-button>
         <slot name="filter-button"></slot>
       </div>
