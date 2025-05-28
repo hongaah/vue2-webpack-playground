@@ -7,6 +7,7 @@ import './plugins/axios'
 import ElementUI from 'element-ui'
 import '@/assets/css/element-variables.scss'
 import '@/assets/css/global.css'
+import '@/components/FilterToolCom/utils/filters'
 
 import App from './App.vue'
 import router from './router'

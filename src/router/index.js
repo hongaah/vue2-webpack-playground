@@ -96,6 +96,12 @@ const routes = [
     meta: { auth: true, keepAlive: true },
     component: () => import('../views/Protable/index.vue'),
   },
+  {
+    path: '/FilterTool',
+    name: 'FilterTool',
+    meta: { auth: true, keepAlive: true },
+    component: () => import('../views/FilterTool/index.vue'),
+  },
 ]
 
 const router = new VueRouter({
